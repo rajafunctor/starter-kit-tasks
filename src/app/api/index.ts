@@ -3,10 +3,11 @@ import * as Apollo from '@apollo/client';
 import { DocumentNode } from 'graphql';
 
 export type Maybe<T> = T | null;
+export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {};
+const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string;
@@ -27,12 +28,26 @@ export type AuthenticationSuccessful = {
     user: User;
 };
 
+export type Life = {
+    __typename?: 'Life';
+    birthday: Scalars['DateTime'];
+    description: Scalars['String'];
+    firstName: Scalars['String'];
+    fullName?: Maybe<Scalars['String']>;
+    hobbies: Array<Scalars['String']>;
+    id?: Maybe<Scalars['ObjectID']>;
+    lastName: Scalars['String'];
+    title: Scalars['String'];
+};
+
 export type Mutation = {
     __typename?: 'Mutation';
     /** Validate credentials (username/password) and return a Json Web Token */
     authenticate: AuthenticationSuccessful;
     /** Create a new account/user */
     createAccount: User;
+    /** Create a mutation to create new lives */
+    createLife: Life;
     /**
      * Create a new topic
      *
@@ -69,8 +84,17 @@ export type MutationCreateAccountArgs = {
     username: Scalars['String'];
 };
 
+export type MutationCreateLifeArgs = {
+    birthday: Scalars['DateTime'];
+    description: Scalars['String'];
+    firstName: Scalars['String'];
+    hobbies: Array<Scalars['String']>;
+    lastName: Scalars['String'];
+    title: Scalars['String'];
+};
+
 export type MutationCreateTopicArgs = {
-    attachments?: Maybe<Array<Scalars['Upload']>>;
+    attachments?: InputMaybe<Array<Scalars['Upload']>>;
     body: Scalars['String'];
     title: Scalars['String'];
 };
@@ -95,6 +119,10 @@ export type Query = {
     __typename?: 'Query';
     /** Fetch user document for the logged in user, returns null otherwise for anonymous */
     account?: Maybe<User>;
+    /** Create a query to retrieve a specific life by its ID */
+    getLife?: Maybe<Life>;
+    /** Create a query to list lives with no arguments */
+    listLives: Array<Life>;
     /** Fetch a topic by its ID */
     topic?: Maybe<Topic>;
     /**
@@ -105,13 +133,17 @@ export type Query = {
     topics: Array<Topic>;
 };
 
+export type QueryGetLifeArgs = {
+    id: Scalars['ObjectID'];
+};
+
 export type QueryTopicArgs = {
     id: Scalars['ObjectID'];
 };
 
 export type QueryTopicsArgs = {
-    pagination?: Maybe<Pagination>;
-    sorting?: Maybe<TopicSorting>;
+    pagination?: InputMaybe<Pagination>;
+    sorting?: InputMaybe<TopicSorting>;
 };
 
 export enum SortingOrder {
@@ -200,8 +232,8 @@ export type TopicFullDataFragment = {
 };
 
 export type GetTopicsQueryVariables = Exact<{
-    pagination?: Maybe<Pagination>;
-    sorting?: Maybe<TopicSorting>;
+    pagination?: InputMaybe<Pagination>;
+    sorting?: InputMaybe<TopicSorting>;
 }>;
 
 export type GetTopicsQuery = {

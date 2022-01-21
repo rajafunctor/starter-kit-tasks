@@ -1,0 +1,10 @@
+type Life {
+    id: ObjectID
+    firstName: String!
+    lastName: String!
+    title: String!
+    fullName: String
+    birthday: DateTime!
+    description: String!
+    hobbies: [String!]!
+}
