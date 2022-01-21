@@ -16,6 +16,7 @@ type SubMenuMeta = { key: string; label: string; items: (ItemMeta | GroupMeta)[]
 const generateMenu = (t: TFunction): (ItemMeta | SubMenuMeta)[] => [
     { key: '1', label: t('common:mainMenu.home'), type: 'item', href: '/' },
     { key: '2', label: t('common:mainMenu.topics'), type: 'item', href: '/topics' },
+    { key: '3', label: t('common:mainMenu.lives'), type: 'item', href: '/lives' },
     {
         type: 'subMenu',
         key: 'subMenu',
