@@ -9,5 +9,9 @@
         "hobbies": "Hobbies",
         "description": "Description",
         "viewLife": "View Life"
+    },
+    "viewLife": {
+        "lifeNotFound": "Sorry, the page you visited does not exist.",
+        "backToLives": "Back to Lives"
     }
 }
