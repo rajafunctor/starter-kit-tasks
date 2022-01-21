@@ -3,10 +3,12 @@ import { withErrorBoundary } from './layouts/RoutedErrorBoundary';
 import DummyErrorRoute from './routes/DummyErrorRoute';
 import HomeRoute from './routes/HomeRoute';
 import InternalErrorRoute from './routes/InternalErrorRoute';
+import LivesRoute from './routes/LivesRoute';
 import NotFoundRoute from './routes/NotFoundRoute';
 
 const MainRouter = () => (
     <Switch>
+        <Route component={LivesRoute} path="/lives" exact />
         <Route component={HomeRoute} path="/" exact />
         <Route component={DummyErrorRoute} path="/dummyError" exact />
         <Route component={InternalErrorRoute} path="/500" exact />l

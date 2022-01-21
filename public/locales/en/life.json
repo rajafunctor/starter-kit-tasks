@@ -1,0 +1,13 @@
+{
+    "listLives": {
+        "noLives": "Sadly there is no life yet",
+        "createLife": "Create a life",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "fullName": "Full Name",
+        "birthday": "Birthday",
+        "hobbies": "Hobbies",
+        "description": "Description",
+        "viewLife": "View Life"
+    }
+}
