@@ -1,0 +1,33 @@
+#import "./life.fragments.graphql"
+
+query getListLives {
+    listLives {
+        ...LifeData
+    }
+}
+
+query getLife($id: ObjectID!) {
+    getLife(id: $id) {
+        ...LifeData
+    }
+}
+
+mutation createLife(
+    $firstName: String!
+    $lastName: String!
+    $description: String!
+    $hobbies: [String!]!
+    $birthday: DateTime!
+    $title: String!
+) {
+    createLife(
+        firstName: $firstName
+        lastName: $lastName
+        description: $description
+        hobbies: $hobbies
+        birthday: $birthday
+        title: $title
+    ) {
+        ...LifeData
+    }
+}
