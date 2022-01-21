@@ -1,5 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import { withErrorBoundary } from './layouts/RoutedErrorBoundary';
+import CreateLifeRoute from './routes/CreateLifeRoute';
 import DummyErrorRoute from './routes/DummyErrorRoute';
 import HomeRoute from './routes/HomeRoute';
 import InternalErrorRoute from './routes/InternalErrorRoute';
@@ -9,6 +10,7 @@ import ViewLifeRoute from './routes/ViewLifeRoute';
 
 const MainRouter = () => (
     <Switch>
+        <Route component={CreateLifeRoute} path="/lives/create" exact />
         <Route component={ViewLifeRoute} path="/lives/:id/life" exact />
         <Route component={LivesRoute} path="/lives" exact />
         <Route component={HomeRoute} path="/" exact />
