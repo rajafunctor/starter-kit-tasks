@@ -5,9 +5,11 @@ import HomeRoute from './routes/HomeRoute';
 import InternalErrorRoute from './routes/InternalErrorRoute';
 import LivesRoute from './routes/LivesRoute';
 import NotFoundRoute from './routes/NotFoundRoute';
+import ViewLifeRoute from './routes/ViewLifeRoute';
 
 const MainRouter = () => (
     <Switch>
+        <Route component={ViewLifeRoute} path="/lives/:id/life" exact />
         <Route component={LivesRoute} path="/lives" exact />
         <Route component={HomeRoute} path="/" exact />
         <Route component={DummyErrorRoute} path="/dummyError" exact />
