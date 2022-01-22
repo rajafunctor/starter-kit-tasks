@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import { ObjectId } from 'mongodb';
-import { User, Topic, TopicMessage } from '../../database';
+import { User, Topic, TopicMessage, Life } from '../../database';
 import { FileUploadPromise, Context, RootDocument } from '../context';
 import { TopicSortingField, SortingOrder } from './enums';
 
@@ -273,7 +273,7 @@ export type GraphQLResolversTypes = {
     Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
     DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
     Int: ResolverTypeWrapper<Scalars['Int']>;
-    Life: ResolverTypeWrapper<GraphQLLife>;
+    Life: ResolverTypeWrapper<Life>;
     Mutation: ResolverTypeWrapper<RootDocument>;
     ObjectID: ResolverTypeWrapper<Scalars['ObjectID']>;
     Pagination: GraphQLPagination;
@@ -297,7 +297,7 @@ export type GraphQLResolversParentTypes = {
     Boolean: Scalars['Boolean'];
     DateTime: Scalars['DateTime'];
     Int: Scalars['Int'];
-    Life: GraphQLLife;
+    Life: Life;
     Mutation: RootDocument;
     ObjectID: Scalars['ObjectID'];
     Pagination: GraphQLPagination;
