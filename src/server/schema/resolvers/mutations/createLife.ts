@@ -22,7 +22,7 @@ const mutation: GraphQLMutationResolvers['createLife'] = async (
 
     await collections.lives.insertOne(document);
 
-    return { ...document, id: document._id, fullName: `${firstName} ${lastName}` };
+    return document;
 };
 
 export default mutation;
