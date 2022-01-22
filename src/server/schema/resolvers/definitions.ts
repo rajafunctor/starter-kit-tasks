@@ -38,9 +38,9 @@ export type GraphQLLife = {
     birthday: Scalars['DateTime'];
     description: Scalars['String'];
     firstName: Scalars['String'];
-    fullName?: Maybe<Scalars['String']>;
+    fullName: Scalars['String'];
     hobbies: Array<Scalars['String']>;
-    id?: Maybe<Scalars['ObjectID']>;
+    id: Scalars['ObjectID'];
     lastName: Scalars['String'];
     title: Scalars['String'];
 };
@@ -331,9 +331,9 @@ export type GraphQLLifeResolvers<
     birthday?: Resolver<GraphQLResolversTypes['DateTime'], ParentType, ContextType>;
     description?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
     firstName?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
-    fullName?: Resolver<Maybe<GraphQLResolversTypes['String']>, ParentType, ContextType>;
+    fullName?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
     hobbies?: Resolver<Array<GraphQLResolversTypes['String']>, ParentType, ContextType>;
-    id?: Resolver<Maybe<GraphQLResolversTypes['ObjectID']>, ParentType, ContextType>;
+    id?: Resolver<GraphQLResolversTypes['ObjectID'], ParentType, ContextType>;
     lastName?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
     title?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
     __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;

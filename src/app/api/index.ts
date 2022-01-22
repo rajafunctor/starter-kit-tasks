@@ -33,9 +33,9 @@ export type Life = {
     birthday: Scalars['DateTime'];
     description: Scalars['String'];
     firstName: Scalars['String'];
-    fullName?: Maybe<Scalars['String']>;
+    fullName: Scalars['String'];
     hobbies: Array<Scalars['String']>;
-    id?: Maybe<Scalars['ObjectID']>;
+    id: Scalars['ObjectID'];
     lastName: Scalars['String'];
     title: Scalars['String'];
 };
@@ -207,9 +207,9 @@ export type LifeDataFragment = {
     birthday: string | Date;
     description: string;
     firstName: string;
-    fullName?: string | null | undefined;
+    fullName: string;
     hobbies: Array<string>;
-    id?: string | null | undefined;
+    id: string;
     lastName: string;
     title: string;
 };
@@ -223,9 +223,9 @@ export type GetListLivesQuery = {
         birthday: string | Date;
         description: string;
         firstName: string;
-        fullName?: string | null | undefined;
+        fullName: string;
         hobbies: Array<string>;
-        id?: string | null | undefined;
+        id: string;
         lastName: string;
         title: string;
     }>;
@@ -243,9 +243,9 @@ export type GetLifeQuery = {
               birthday: string | Date;
               description: string;
               firstName: string;
-              fullName?: string | null | undefined;
+              fullName: string;
               hobbies: Array<string>;
-              id?: string | null | undefined;
+              id: string;
               lastName: string;
               title: string;
           }
@@ -269,9 +269,9 @@ export type CreateLifeMutation = {
         birthday: string | Date;
         description: string;
         firstName: string;
-        fullName?: string | null | undefined;
+        fullName: string;
         hobbies: Array<string>;
-        id?: string | null | undefined;
+        id: string;
         lastName: string;
         title: string;
     };

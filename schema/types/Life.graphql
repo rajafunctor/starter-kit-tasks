@@ -1,9 +1,9 @@
 type Life {
-    id: ObjectID
+    id: ObjectID!
     firstName: String!
     lastName: String!
     title: String!
-    fullName: String
+    fullName: String!
     birthday: DateTime!
     description: String!
     hobbies: [String!]!
