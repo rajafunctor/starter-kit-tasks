@@ -95,7 +95,10 @@ const Field = ({ label, value, layout }: FieldProps & FieldLayoutProps): JSX.Ele
 const ListLives = () => {
     const { t } = useTranslation(['life']);
     const history = useHistory();
-    const { data, loading } = useGetListLivesQuery();
+    const { data, loading } = useGetListLivesQuery({
+        fetchPolicy: 'network-only',
+        nextFetchPolicy: 'cache-first',
+    });
     const listLives = data?.listLives || [];
     const noLives = !listLives?.length;
 
