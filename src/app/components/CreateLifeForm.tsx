@@ -39,7 +39,7 @@ const CreateLifeFrom = () => {
     const onFinish = (values: any) => {
         const birthday = values.birthday.toISOString();
         const body = { ...values, birthday };
-        createLifeMutation({ variables: body })
+        createLifeMutation({ variables: { body } })
             .then(() => {
                 history.push('/lives');
             })

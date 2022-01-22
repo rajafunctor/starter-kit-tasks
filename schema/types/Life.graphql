@@ -1,3 +1,12 @@
+input InputLife {
+    firstName: String!
+    lastName: String!
+    title: String!
+    birthday: DateTime!
+    description: String!
+    hobbies: [String!]!
+}
+
 type Life {
     id: ObjectID!
     firstName: String!

@@ -17,6 +17,15 @@ type AuthenticationSuccessful {
 
 scalar DateTime
 
+input InputLife {
+    birthday: DateTime!
+    description: String!
+    firstName: String!
+    hobbies: [String!]!
+    lastName: String!
+    title: String!
+}
+
 type Life {
     birthday: DateTime!
     description: String!
@@ -40,14 +49,7 @@ type Mutation {
     """
     Create a mutation to create new lives
     """
-    createLife(
-        birthday: DateTime!
-        description: String!
-        firstName: String!
-        hobbies: [String!]!
-        lastName: String!
-        title: String!
-    ): Life!
+    createLife(body: InputLife!): Life!
     """
     Create a new topic
 

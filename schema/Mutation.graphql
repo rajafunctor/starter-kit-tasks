@@ -40,12 +40,5 @@ type Mutation {
     """
     Create a mutation to create new lives
     """
-    createLife(
-        firstName: String!
-        lastName: String!
-        title: String!
-        birthday: DateTime!
-        description: String!
-        hobbies: [String!]!
-    ): Life!
+    createLife(body: InputLife!): Life!
 }

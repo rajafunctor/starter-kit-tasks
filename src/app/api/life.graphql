@@ -12,22 +12,8 @@ query getLife($id: ObjectID!) {
     }
 }
 
-mutation createLife(
-    $firstName: String!
-    $lastName: String!
-    $description: String!
-    $hobbies: [String!]!
-    $birthday: DateTime!
-    $title: String!
-) {
-    createLife(
-        firstName: $firstName
-        lastName: $lastName
-        description: $description
-        hobbies: $hobbies
-        birthday: $birthday
-        title: $title
-    ) {
+mutation createLife($body: InputLife!) {
+    createLife(body: $body) {
         ...LifeData
     }
 }

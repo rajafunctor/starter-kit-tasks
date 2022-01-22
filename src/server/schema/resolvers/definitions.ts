@@ -34,6 +34,15 @@ export type GraphQLAuthenticationSuccessful = {
     user: GraphQLUser;
 };
 
+export type GraphQLInputLife = {
+    birthday: Scalars['DateTime'];
+    description: Scalars['String'];
+    firstName: Scalars['String'];
+    hobbies: Array<Scalars['String']>;
+    lastName: Scalars['String'];
+    title: Scalars['String'];
+};
+
 export type GraphQLLife = {
     birthday: Scalars['DateTime'];
     description: Scalars['String'];
@@ -89,12 +98,7 @@ export type GraphQLMutationCreateAccountArgs = {
 };
 
 export type GraphQLMutationCreateLifeArgs = {
-    birthday: Scalars['DateTime'];
-    description: Scalars['String'];
-    firstName: Scalars['String'];
-    hobbies: Array<Scalars['String']>;
-    lastName: Scalars['String'];
-    title: Scalars['String'];
+    body: GraphQLInputLife;
 };
 
 export type GraphQLMutationCreateTopicArgs = {
@@ -272,6 +276,7 @@ export type GraphQLResolversTypes = {
     >;
     Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
     DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
+    InputLife: GraphQLInputLife;
     Int: ResolverTypeWrapper<Scalars['Int']>;
     Life: ResolverTypeWrapper<Life>;
     Mutation: ResolverTypeWrapper<RootDocument>;
@@ -296,6 +301,7 @@ export type GraphQLResolversParentTypes = {
     };
     Boolean: Scalars['Boolean'];
     DateTime: Scalars['DateTime'];
+    InputLife: GraphQLInputLife;
     Int: Scalars['Int'];
     Life: Life;
     Mutation: RootDocument;
@@ -359,10 +365,7 @@ export type GraphQLMutationResolvers<
         GraphQLResolversTypes['Life'],
         ParentType,
         ContextType,
-        RequireFields<
-            GraphQLMutationCreateLifeArgs,
-            'birthday' | 'description' | 'firstName' | 'hobbies' | 'lastName' | 'title'
-        >
+        RequireFields<GraphQLMutationCreateLifeArgs, 'body'>
     >;
     createTopic?: Resolver<
         GraphQLResolversTypes['Topic'],

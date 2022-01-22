@@ -28,6 +28,15 @@ export type AuthenticationSuccessful = {
     user: User;
 };
 
+export type InputLife = {
+    birthday: Scalars['DateTime'];
+    description: Scalars['String'];
+    firstName: Scalars['String'];
+    hobbies: Array<Scalars['String']>;
+    lastName: Scalars['String'];
+    title: Scalars['String'];
+};
+
 export type Life = {
     __typename?: 'Life';
     birthday: Scalars['DateTime'];
@@ -85,12 +94,7 @@ export type MutationCreateAccountArgs = {
 };
 
 export type MutationCreateLifeArgs = {
-    birthday: Scalars['DateTime'];
-    description: Scalars['String'];
-    firstName: Scalars['String'];
-    hobbies: Array<Scalars['String']>;
-    lastName: Scalars['String'];
-    title: Scalars['String'];
+    body: InputLife;
 };
 
 export type MutationCreateTopicArgs = {
@@ -254,12 +258,7 @@ export type GetLifeQuery = {
 };
 
 export type CreateLifeMutationVariables = Exact<{
-    firstName: Scalars['String'];
-    lastName: Scalars['String'];
-    description: Scalars['String'];
-    hobbies: Array<Scalars['String']> | Scalars['String'];
-    birthday: Scalars['DateTime'];
-    title: Scalars['String'];
+    body: InputLife;
 }>;
 
 export type CreateLifeMutation = {
@@ -790,45 +789,11 @@ export const CreateLifeDocument = /* #__PURE__ */ {
             variableDefinitions: [
                 {
                     kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'firstName' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
-                },
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'lastName' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
-                },
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'description' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
-                },
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'hobbies' } },
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'body' } },
                     type: {
                         kind: 'NonNullType',
-                        type: {
-                            kind: 'ListType',
-                            type: {
-                                kind: 'NonNullType',
-                                type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
-                            },
-                        },
+                        type: { kind: 'NamedType', name: { kind: 'Name', value: 'InputLife' } },
                     },
-                },
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'birthday' } },
-                    type: {
-                        kind: 'NonNullType',
-                        type: { kind: 'NamedType', name: { kind: 'Name', value: 'DateTime' } },
-                    },
-                },
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'title' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
                 },
             ],
             selectionSet: {
@@ -840,33 +805,8 @@ export const CreateLifeDocument = /* #__PURE__ */ {
                         arguments: [
                             {
                                 kind: 'Argument',
-                                name: { kind: 'Name', value: 'firstName' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'firstName' } },
-                            },
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'lastName' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'lastName' } },
-                            },
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'description' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'description' } },
-                            },
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'hobbies' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'hobbies' } },
-                            },
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'birthday' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'birthday' } },
-                            },
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'title' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'title' } },
+                                name: { kind: 'Name', value: 'body' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'body' } },
                             },
                         ],
                         selectionSet: {
@@ -912,12 +852,7 @@ export type CreateLifeMutationFn = Apollo.MutationFunction<CreateLifeMutation, C
  * @example
  * const [createLifeMutation, { data, loading, error }] = useCreateLifeMutation({
  *   variables: {
- *      firstName: // value for 'firstName'
- *      lastName: // value for 'lastName'
- *      description: // value for 'description'
- *      hobbies: // value for 'hobbies'
- *      birthday: // value for 'birthday'
- *      title: // value for 'title'
+ *      body: // value for 'body'
  *   },
  * });
  */
