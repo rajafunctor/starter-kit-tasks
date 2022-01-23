@@ -1,0 +1,15 @@
+{
+    "data": {
+        "getLife": {
+            "birthday": "2022-01-21T03:00:25.926Z",
+            "description": "Description .....",
+            "firstName": "Raja",
+            "fullName": "Raja P",
+            "hobbies": ["cricket"],
+            "id": "61ea25cdfbaa815941cb1c0e",
+            "lastName": "P",
+            "title": "Raju",
+            "__typename": "Life"
+        }
+    }
+}

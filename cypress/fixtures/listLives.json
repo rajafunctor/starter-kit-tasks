@@ -1,0 +1,116 @@
+{
+    "data": {
+        "listLives": [
+            {
+                "birthday": "2022-01-21T03:00:25.926Z",
+                "description": "Description .....",
+                "firstName": "Raja",
+                "fullName": "Raja P",
+                "hobbies": ["cricket"],
+                "id": "61ea25cdfbaa815941cb1c0e",
+                "lastName": "P",
+                "title": "Raju",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-21T03:00:25.926Z",
+                "description": "Description .....",
+                "firstName": "Raja",
+                "fullName": "Raja P ra",
+                "hobbies": ["cricket"],
+                "id": "61ea3a2487bd12607680f1a8",
+                "lastName": "P ra",
+                "title": "Raju P",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-12T12:01:08.819Z",
+                "description": "dlkhjfgh",
+                "firstName": "djghk",
+                "fullName": "djghk jkjl",
+                "hobbies": ["lhj", "dfghdfgh", "dfh"],
+                "id": "61eaa2211fcd57adae45fe11",
+                "lastName": "jkjl",
+                "title": "kjlk",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-05T13:29:58.590Z",
+                "description": "I am web developer",
+                "firstName": "Raja",
+                "fullName": "Raja Polisheeti",
+                "hobbies": ["Playing Cricket", "Reading books", "Watching movies and web series"],
+                "id": "61eab58b1fcd57adae45fe12",
+                "lastName": "Polisheeti",
+                "title": "Disco Raja",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-04T10:03:20.593Z",
+                "description": "Cool .... lot to say :)",
+                "firstName": "app",
+                "fullName": "app vantage",
+                "hobbies": ["Play with code"],
+                "id": "61ebd6a5deecc54bd891adc4",
+                "lastName": "vantage",
+                "title": "best",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-21T03:00:25.926Z",
+                "description": "Description .....",
+                "firstName": "Raja",
+                "fullName": "Raja P ra1",
+                "hobbies": ["cricket"],
+                "id": "61ebdc532a35008f4e5547b5",
+                "lastName": "P ra1",
+                "title": "Raju P11",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-10T10:31:48.769Z",
+                "description": "Test Description",
+                "firstName": "Test First",
+                "fullName": "Test First Test Last",
+                "hobbies": ["Test 1", "Test 2"],
+                "id": "61ebdd38dd0d30900fce8632",
+                "lastName": "Test Last",
+                "title": "Test Title",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-02T10:40:08.564Z",
+                "description": "Nice ....",
+                "firstName": "Test First 1",
+                "fullName": "Test First 1 Test Last 1",
+                "hobbies": ["Hello", "World"],
+                "id": "61ebdf1ab94ef984a8ac7088",
+                "lastName": "Test Last 1",
+                "title": "Test Title 1",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-31T10:42:39.386Z",
+                "description": "Nice 2 .....",
+                "firstName": "kjcgjkj",
+                "fullName": "kjcgjkj ljlkjlkj",
+                "hobbies": ["data dkfgjhlkfgh"],
+                "id": "61ebdfacb94ef984a8ac7089",
+                "lastName": "ljlkjlkj",
+                "title": "lkjlkj",
+                "__typename": "Life"
+            },
+            {
+                "birthday": "2022-01-10T10:47:44.336Z",
+                "description": "Nice\n",
+                "firstName": "Data",
+                "fullName": "Data Service",
+                "hobbies": ["456"],
+                "id": "61ebe0d8b94ef984a8ac708a",
+                "lastName": "Service",
+                "title": "Test",
+                "__typename": "Life"
+            }
+        ]
+    }
+}
