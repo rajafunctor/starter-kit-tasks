@@ -113,8 +113,14 @@ const ListLives = () => {
     }
 
     return (
-        <div>
-            <Button onClick={() => history.push(`/lives/create`)} shape="round" size="large" type="primary">
+        <div className="listLivesWrapper">
+            <Button
+                id="createLife"
+                onClick={() => history.push(`/lives/create`)}
+                shape="round"
+                size="large"
+                type="primary"
+            >
                 {t('life:listLives:createLife')}
             </Button>
 
@@ -122,7 +128,7 @@ const ListLives = () => {
             <Skeleton loading={loading} active>
                 {listLives.map(life => (
                     <React.Fragment key={life.id}>
-                        <StyledRow>
+                        <StyledRow className="lifeRecordWrapper">
                             <Col lg={6} sm={24}>
                                 <div className="mainDetails">
                                     <Field label={t('life:listLives:fullName')} layout="row" value={life.fullName} />
@@ -147,6 +153,7 @@ const ListLives = () => {
                             </Col>
                             <Col className="actions" lg={4} sm={24}>
                                 <Button
+                                    className="viewLife"
                                     onClick={() => history.push(`/lives/${life.id}/life`)}
                                     shape="round"
                                     size="large"
