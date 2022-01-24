@@ -1,17 +1,18 @@
 import { aliasQuery } from '../../utils/graphql_test';
 
+console.log(Cypress.env());
+
 describe('List Lives Test', () => {
     beforeEach(() => {
-        cy.intercept('POST', 'http://localhost:3000/graphql', req => {
+        cy.intercept('POST', '/graphql', req => {
             aliasQuery(req, 'getListLives');
             req.reply({ fixture: 'listLives.json' });
         });
     });
 
     it('Should have display list of records', () => {
-        cy.visit('http://localhost:3000/lives');
+        cy.visit('/lives');
         cy.wait('@gqlgetListLivesQuery');
-
         cy.get('.lifeRecordWrapper').should('have.length', 10);
     });
 
