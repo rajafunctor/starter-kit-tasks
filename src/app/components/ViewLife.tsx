@@ -40,26 +40,26 @@ const ViewLife = () => {
                 <div>
                     <StyledDescription layout="vertical" title={lifeDetails?.title} bordered>
                         <Descriptions.Item label={t('life:listLives.fullName')} span={2}>
-                            {lifeDetails?.fullName}
+                            {lifeDetails.fullName}
                         </Descriptions.Item>
                         <Descriptions.Item label={t('life:listLives.firstName')} span={2}>
-                            {lifeDetails?.firstName}
+                            {lifeDetails.firstName}
                         </Descriptions.Item>
                         <Descriptions.Item label={t('life:listLives.lastName')} span={2}>
-                            {lifeDetails?.lastName}
+                            {lifeDetails.lastName}
                         </Descriptions.Item>
                         <Descriptions.Item label={t('life:listLives.birthday')} span={2}>
-                            {lifeDetails?.birthday}
+                            {lifeDetails.birthday}
                         </Descriptions.Item>
                         <Descriptions.Item label={t('life:listLives.hobbies')} span={3}>
                             <ul>
-                                {lifeDetails?.hobbies?.map(item => (
+                                {lifeDetails.hobbies.map(item => (
                                     <li key={item}>{item}</li>
                                 ))}
                             </ul>
                         </Descriptions.Item>
                         <Descriptions.Item label={t('life:listLives.description')} span={3}>
-                            {lifeDetails?.description}
+                            {lifeDetails.description}
                         </Descriptions.Item>
                     </StyledDescription>
                     <Divider />
