@@ -3,7 +3,7 @@ import Title from 'antd/lib/typography/Title';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
-import { useCreateLifeMutation, InputLife } from '../api';
+import { useCreateLifeMutation } from '../api';
 
 const { TextArea } = Input;
 
@@ -30,15 +30,24 @@ const tailFormItemLayout = {
     },
 };
 
+interface LifeInput {
+    firstName: string;
+    lastName: string;
+    hobbies: string[];
+    description: string;
+    birthday: Date;
+    title: string;
+}
+
 const CreateLifeFrom = () => {
     const { t } = useTranslation('life');
     const [form] = Form.useForm();
     const history = useHistory();
     const [createLifeMutation, { loading }] = useCreateLifeMutation();
 
-    const onFinish = (values: InputLife) => {
+    const onFinish = (values: LifeInput) => {
         const { birthday } = values;
-        const body = { ...values, birthday };
+        const body = { ...values, birthday: birthday.toISOString() };
         createLifeMutation({ variables: { body } })
             .then(() => {
                 history.push('/lives');
