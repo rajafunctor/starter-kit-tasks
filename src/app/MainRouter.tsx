@@ -11,7 +11,7 @@ import ViewLifeRoute from './routes/ViewLifeRoute';
 const MainRouter = () => (
     <Switch>
         <Route component={CreateLifeRoute} path="/lives/create" exact />
-        <Route component={ViewLifeRoute} path="/lives/:id/life" exact />
+        <Route component={ViewLifeRoute} path="/lives/:id" exact />
         <Route component={LivesRoute} path="/lives" exact />
         <Route component={HomeRoute} path="/" exact />
         <Route component={DummyErrorRoute} path="/dummyError" exact />
