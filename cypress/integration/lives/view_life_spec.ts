@@ -9,7 +9,7 @@ describe('List Lives Test', () => {
     });
 
     it('Should display title of life', () => {
-        cy.visit('http://localhost:3000/lives/61ea25cdfbaa815941cb1c0e/life');
+        cy.visit('http://localhost:3000/lives/61ea25cdfbaa815941cb1c0e');
         cy.wait('@gqlgetLifeQuery');
         cy.get('.ant-descriptions-title').should('contain', 'Raju');
     });
