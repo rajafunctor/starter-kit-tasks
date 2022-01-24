@@ -3,7 +3,7 @@ import Title from 'antd/lib/typography/Title';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
-import { useCreateLifeMutation } from '../api';
+import { useCreateLifeMutation, InputLife } from '../api';
 
 const { TextArea } = Input;
 
@@ -36,8 +36,8 @@ const CreateLifeFrom = () => {
     const history = useHistory();
     const [createLifeMutation, { loading }] = useCreateLifeMutation();
 
-    const onFinish = (values: any) => {
-        const birthday = values.birthday.toISOString();
+    const onFinish = (values: InputLife) => {
+        const { birthday } = values;
         const body = { ...values, birthday };
         createLifeMutation({ variables: { body } })
             .then(() => {
