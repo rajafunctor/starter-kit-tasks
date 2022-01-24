@@ -32,39 +32,39 @@ const ViewLife = () => {
                         </Button>
                     }
                     status="404"
-                    subTitle={t('life:viewLife:lifeNotFound')}
+                    subTitle={t('life:viewLife.lifeNotFound')}
                     title="404"
                 />
             )}
             {lifeDetails && (
                 <div>
                     <StyledDescription layout="vertical" title={lifeDetails?.title} bordered>
-                        <Descriptions.Item label={t('life:listLives:fullName')} span={2}>
+                        <Descriptions.Item label={t('life:listLives.fullName')} span={2}>
                             {lifeDetails?.fullName}
                         </Descriptions.Item>
-                        <Descriptions.Item label={t('life:listLives:firstName')} span={2}>
+                        <Descriptions.Item label={t('life:listLives.firstName')} span={2}>
                             {lifeDetails?.firstName}
                         </Descriptions.Item>
-                        <Descriptions.Item label={t('life:listLives:lastName')} span={2}>
+                        <Descriptions.Item label={t('life:listLives.lastName')} span={2}>
                             {lifeDetails?.lastName}
                         </Descriptions.Item>
-                        <Descriptions.Item label={t('life:listLives:birthday')} span={2}>
+                        <Descriptions.Item label={t('life:listLives.birthday')} span={2}>
                             {lifeDetails?.birthday}
                         </Descriptions.Item>
-                        <Descriptions.Item label={t('life:listLives:hobbies')} span={3}>
+                        <Descriptions.Item label={t('life:listLives.hobbies')} span={3}>
                             <ul>
                                 {lifeDetails?.hobbies?.map(item => (
                                     <li key={item}>{item}</li>
                                 ))}
                             </ul>
                         </Descriptions.Item>
-                        <Descriptions.Item label={t('life:listLives:description')} span={3}>
+                        <Descriptions.Item label={t('life:listLives.description')} span={3}>
                             {lifeDetails?.description}
                         </Descriptions.Item>
                     </StyledDescription>
                     <Divider />
                     <Button onClick={() => history.push('/lives')} type="primary">
-                        {t('life:viewLife:backToLives')}
+                        {t('life:viewLife.backToLives')}
                     </Button>
                 </div>
             )}

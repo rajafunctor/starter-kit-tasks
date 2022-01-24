@@ -45,15 +45,15 @@ const CreateLifeFrom = () => {
             })
             .catch(() => {
                 notification.error({
-                    message: t('life:createLife:createLifeErrorHeading'),
-                    description: t('life:createLife:createLifeErrorDescription'),
+                    message: t('life:createLife.createLifeErrorHeading'),
+                    description: t('life:createLife.createLifeErrorDescription'),
                 });
             });
     };
 
     return (
         <div>
-            <Title>{t('life:createLife:title')}</Title>
+            <Title>{t('life:createLife.title')}</Title>
             <Divider />
             <Form
                 {...formItemLayout}
@@ -71,58 +71,58 @@ const CreateLifeFrom = () => {
                 scrollToFirstError
             >
                 <Form.Item
-                    label={t('life:listLives:fullName')}
+                    label={t('life:listLives.fullName')}
                     name="firstName"
                     rules={[
                         {
                             required: true,
-                            message: t('life:createLife:firstNameError'),
+                            message: t('life:createLife.firstNameError'),
                         },
                     ]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
-                    label={t('life:listLives:lastName')}
+                    label={t('life:listLives.lastName')}
                     name="lastName"
                     rules={[
                         {
                             required: true,
-                            message: t('life:createLife:lastNameError'),
+                            message: t('life:createLife.lastNameError'),
                         },
                     ]}
                 >
                     <Input />
                 </Form.Item>
                 <Form.Item
-                    label={t('life:listLives:title')}
+                    label={t('life:listLives.title')}
                     name="title"
-                    rules={[{ required: true, message: t('life:createLife:titleError') }]}
+                    rules={[{ required: true, message: t('life:createLife.titleError') }]}
                 >
                     <Input />
                 </Form.Item>
 
                 <Form.Item
-                    label={t('life:listLives:birthday')}
+                    label={t('life:listLives.birthday')}
                     name="birthday"
-                    rules={[{ required: true, message: t('life:createLife:birthdayError') }]}
+                    rules={[{ required: true, message: t('life:createLife.birthdayError') }]}
                 >
                     <DatePicker />
                 </Form.Item>
                 <Form.Item
-                    label={t('life:listLives:hobbies')}
+                    label={t('life:listLives.hobbies')}
                     name="hobbies"
-                    rules={[{ required: true, message: t('life:createLife:hobbiesError') }]}
+                    rules={[{ required: true, message: t('life:createLife.hobbiesError') }]}
                 >
                     <Select mode="tags" tokenSeparators={[',']} />
                 </Form.Item>
                 <Form.Item
-                    label={t('life:listLives:description')}
+                    label={t('life:listLives.description')}
                     name="description"
                     rules={[
                         {
                             required: true,
-                            message: t('life:createLife:descriptionError'),
+                            message: t('life:createLife.descriptionError'),
                         },
                     ]}
                 >
@@ -130,11 +130,11 @@ const CreateLifeFrom = () => {
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
                     <Button htmlType="submit" loading={loading} shape="round" size="large" type="primary">
-                        {t('life:listLives:createLife')}
+                        {t('life:listLives.createLife')}
                     </Button>
 
                     <Button onClick={() => history.push(`/lives`)} shape="round" size="large">
-                        {t('life:viewLife:backToLives')}
+                        {t('life:viewLife.backToLives')}
                     </Button>
                 </Form.Item>
             </Form>

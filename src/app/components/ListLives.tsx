@@ -106,7 +106,7 @@ const ListLives = () => {
         return (
             <Empty description={t('life:noLives')}>
                 <Button onClick={() => history.push(`/lives/create`)} shape="round" type="primary">
-                    {t('life:listLives:createLife')}
+                    {t('life:listLives.createLife')}
                 </Button>
             </Empty>
         );
@@ -121,7 +121,7 @@ const ListLives = () => {
                 size="large"
                 type="primary"
             >
-                {t('life:listLives:createLife')}
+                {t('life:listLives.createLife')}
             </Button>
 
             <Divider />
@@ -131,11 +131,11 @@ const ListLives = () => {
                         <StyledRow className="lifeRecordWrapper">
                             <Col lg={6} sm={24}>
                                 <div className="mainDetails">
-                                    <Field label={t('life:listLives:fullName')} layout="row" value={life.fullName} />
-                                    <Field label={t('life:listLives:firstName')} layout="row" value={life.firstName} />
-                                    <Field label={t('life:listLives:lastName')} layout="row" value={life.lastName} />
+                                    <Field label={t('life:listLives.fullName')} layout="row" value={life.fullName} />
+                                    <Field label={t('life:listLives.firstName')} layout="row" value={life.firstName} />
+                                    <Field label={t('life:listLives.lastName')} layout="row" value={life.lastName} />
                                     <Field
-                                        label={t('life:listLives:birthday')}
+                                        label={t('life:listLives.birthday')}
                                         layout="row"
                                         value={life.birthday?.toString()?.split('T')?.[0]}
                                     />
@@ -143,9 +143,9 @@ const ListLives = () => {
                             </Col>
                             <Col lg={14} sm={24}>
                                 <div className="otherDetails">
-                                    <Field label={t('life:listLives:hobbies')} layout="column" value={life.hobbies} />
+                                    <Field label={t('life:listLives.hobbies')} layout="column" value={life.hobbies} />
                                     <Field
-                                        label={t('life:listLives:description')}
+                                        label={t('life:listLives.description')}
                                         layout="column"
                                         value={life.description}
                                     />
@@ -160,7 +160,7 @@ const ListLives = () => {
                                     type="primary"
                                     block
                                 >
-                                    {t('life:listLives:viewLife')} <ArrowRightOutlined />
+                                    {t('life:listLives.viewLife')} <ArrowRightOutlined />
                                 </Button>
                             </Col>
                         </StyledRow>
