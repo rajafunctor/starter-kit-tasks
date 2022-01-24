@@ -154,7 +154,7 @@ const ListLives = () => {
                             <Col className="actions" lg={4} sm={24}>
                                 <Button
                                     className="viewLife"
-                                    onClick={() => history.push(`/lives/${life.id}/life`)}
+                                    onClick={() => history.push(`/lives/${life.id}`)}
                                     shape="round"
                                     size="large"
                                     type="primary"
