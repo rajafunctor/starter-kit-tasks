@@ -17,6 +17,26 @@ type AuthenticationSuccessful {
 
 scalar DateTime
 
+input InputLife {
+    birthday: DateTime!
+    description: String!
+    firstName: String!
+    hobbies: [String!]!
+    lastName: String!
+    title: String!
+}
+
+type Life {
+    birthday: DateTime!
+    description: String!
+    firstName: String!
+    fullName: String!
+    hobbies: [String!]!
+    id: ObjectID!
+    lastName: String!
+    title: String!
+}
+
 type Mutation {
     """
     Validate credentials (username/password) and return a Json Web Token
@@ -26,6 +46,10 @@ type Mutation {
     Create a new account/user
     """
     createAccount(password: String!, username: String!): User!
+    """
+    Create a mutation to create new lives
+    """
+    createLife(body: InputLife!): Life!
     """
     Create a new topic
 
@@ -70,6 +94,14 @@ type Query {
     Fetch user document for the logged in user, returns null otherwise for anonymous
     """
     account: User
+    """
+    Create a query to retrieve a specific life by its ID
+    """
+    getLife(id: ObjectID!): Life
+    """
+    Create a query to list lives with no arguments
+    """
+    listLives: [Life!]!
     """
     Fetch a topic by its ID
     """

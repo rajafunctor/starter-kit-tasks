@@ -15,4 +15,14 @@ type Query {
     Fetch user document for the logged in user, returns null otherwise for anonymous
     """
     account: User
+
+    """
+    Create a query to retrieve a specific life by its ID
+    """
+    getLife(id: ObjectID!): Life
+
+    """
+    Create a query to list lives with no arguments
+    """
+    listLives: [Life!]!
 }

@@ -36,4 +36,9 @@ type Mutation {
     Authentication is required
     """
     refreshCredentials: String!
+
+    """
+    Create a mutation to create new lives
+    """
+    createLife(body: InputLife!): Life!
 }

@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import { ObjectId } from 'mongodb';
-import { User, Topic, TopicMessage } from '../../database';
+import { User, Topic, TopicMessage, Life } from '../../database';
 import { FileUploadPromise, Context, RootDocument } from '../context';
 import { TopicSortingField, SortingOrder } from './enums';
 
 export type Maybe<T> = T | null;
+export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -33,11 +34,33 @@ export type GraphQLAuthenticationSuccessful = {
     user: GraphQLUser;
 };
 
+export type GraphQLInputLife = {
+    birthday: Scalars['DateTime'];
+    description: Scalars['String'];
+    firstName: Scalars['String'];
+    hobbies: Array<Scalars['String']>;
+    lastName: Scalars['String'];
+    title: Scalars['String'];
+};
+
+export type GraphQLLife = {
+    birthday: Scalars['DateTime'];
+    description: Scalars['String'];
+    firstName: Scalars['String'];
+    fullName: Scalars['String'];
+    hobbies: Array<Scalars['String']>;
+    id: Scalars['ObjectID'];
+    lastName: Scalars['String'];
+    title: Scalars['String'];
+};
+
 export type GraphQLMutation = {
     /** Validate credentials (username/password) and return a Json Web Token */
     authenticate: GraphQLAuthenticationSuccessful;
     /** Create a new account/user */
     createAccount: GraphQLUser;
+    /** Create a mutation to create new lives */
+    createLife: GraphQLLife;
     /**
      * Create a new topic
      *
@@ -74,8 +97,12 @@ export type GraphQLMutationCreateAccountArgs = {
     username: Scalars['String'];
 };
 
+export type GraphQLMutationCreateLifeArgs = {
+    body: GraphQLInputLife;
+};
+
 export type GraphQLMutationCreateTopicArgs = {
-    attachments?: Maybe<Array<Scalars['Upload']>>;
+    attachments?: InputMaybe<Array<Scalars['Upload']>>;
     body: Scalars['String'];
     title: Scalars['String'];
 };
@@ -99,6 +126,10 @@ export type GraphQLPagination = {
 export type GraphQLQuery = {
     /** Fetch user document for the logged in user, returns null otherwise for anonymous */
     account?: Maybe<GraphQLUser>;
+    /** Create a query to retrieve a specific life by its ID */
+    getLife?: Maybe<GraphQLLife>;
+    /** Create a query to list lives with no arguments */
+    listLives: Array<GraphQLLife>;
     /** Fetch a topic by its ID */
     topic?: Maybe<GraphQLTopic>;
     /**
@@ -109,13 +140,17 @@ export type GraphQLQuery = {
     topics: Array<GraphQLTopic>;
 };
 
+export type GraphQLQueryGetLifeArgs = {
+    id: Scalars['ObjectID'];
+};
+
 export type GraphQLQueryTopicArgs = {
     id: Scalars['ObjectID'];
 };
 
 export type GraphQLQueryTopicsArgs = {
-    pagination?: Maybe<GraphQLPagination>;
-    sorting?: Maybe<GraphQLTopicSorting>;
+    pagination?: InputMaybe<GraphQLPagination>;
+    sorting?: InputMaybe<GraphQLTopicSorting>;
 };
 
 export { SortingOrder };
@@ -185,7 +220,7 @@ export type SubscriptionSubscribeFn<TResult, TParent, TContext, TArgs> = (
     args: TArgs,
     context: TContext,
     info: GraphQLResolveInfo
-) => AsyncIterator<TResult> | Promise<AsyncIterator<TResult>>;
+) => AsyncIterable<TResult> | Promise<AsyncIterable<TResult>>;
 
 export type SubscriptionResolveFn<TResult, TParent, TContext, TArgs> = (
     parent: TParent,
@@ -241,7 +276,9 @@ export type GraphQLResolversTypes = {
     >;
     Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
     DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
+    InputLife: GraphQLInputLife;
     Int: ResolverTypeWrapper<Scalars['Int']>;
+    Life: ResolverTypeWrapper<Life>;
     Mutation: ResolverTypeWrapper<RootDocument>;
     ObjectID: ResolverTypeWrapper<Scalars['ObjectID']>;
     Pagination: GraphQLPagination;
@@ -264,7 +301,9 @@ export type GraphQLResolversParentTypes = {
     };
     Boolean: Scalars['Boolean'];
     DateTime: Scalars['DateTime'];
+    InputLife: GraphQLInputLife;
     Int: Scalars['Int'];
+    Life: Life;
     Mutation: RootDocument;
     ObjectID: Scalars['ObjectID'];
     Pagination: GraphQLPagination;
@@ -291,6 +330,21 @@ export interface GraphQLDateTimeScalarConfig extends GraphQLScalarTypeConfig<Gra
     name: 'DateTime';
 }
 
+export type GraphQLLifeResolvers<
+    ContextType = Context,
+    ParentType extends GraphQLResolversParentTypes['Life'] = GraphQLResolversParentTypes['Life']
+> = {
+    birthday?: Resolver<GraphQLResolversTypes['DateTime'], ParentType, ContextType>;
+    description?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
+    firstName?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
+    fullName?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
+    hobbies?: Resolver<Array<GraphQLResolversTypes['String']>, ParentType, ContextType>;
+    id?: Resolver<GraphQLResolversTypes['ObjectID'], ParentType, ContextType>;
+    lastName?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
+    title?: Resolver<GraphQLResolversTypes['String'], ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type GraphQLMutationResolvers<
     ContextType = Context,
     ParentType extends GraphQLResolversParentTypes['Mutation'] = GraphQLResolversParentTypes['Mutation']
@@ -306,6 +360,12 @@ export type GraphQLMutationResolvers<
         ParentType,
         ContextType,
         RequireFields<GraphQLMutationCreateAccountArgs, 'password' | 'username'>
+    >;
+    createLife?: Resolver<
+        GraphQLResolversTypes['Life'],
+        ParentType,
+        ContextType,
+        RequireFields<GraphQLMutationCreateLifeArgs, 'body'>
     >;
     createTopic?: Resolver<
         GraphQLResolversTypes['Topic'],
@@ -337,6 +397,13 @@ export type GraphQLQueryResolvers<
     ParentType extends GraphQLResolversParentTypes['Query'] = GraphQLResolversParentTypes['Query']
 > = {
     account?: Resolver<Maybe<GraphQLResolversTypes['User']>, ParentType, ContextType>;
+    getLife?: Resolver<
+        Maybe<GraphQLResolversTypes['Life']>,
+        ParentType,
+        ContextType,
+        RequireFields<GraphQLQueryGetLifeArgs, 'id'>
+    >;
+    listLives?: Resolver<Array<GraphQLResolversTypes['Life']>, ParentType, ContextType>;
     topic?: Resolver<
         Maybe<GraphQLResolversTypes['Topic']>,
         ParentType,
@@ -418,6 +485,7 @@ export type GraphQLUserResolvers<
 export type GraphQLResolvers<ContextType = Context> = {
     AuthenticationSuccessful?: GraphQLAuthenticationSuccessfulResolvers<ContextType>;
     DateTime?: GraphQLScalarType;
+    Life?: GraphQLLifeResolvers<ContextType>;
     Mutation?: GraphQLMutationResolvers<ContextType>;
     ObjectID?: GraphQLScalarType;
     Query?: GraphQLQueryResolvers<ContextType>;

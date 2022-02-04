@@ -24,6 +24,7 @@ generates:
                 User: ../../database#User
                 Topic: ../../database#Topic
                 TopicMessage: ../../database#TopicMessage
+                Life: ../../database#Life
             enumValues: ./enums
             scalars:
                 DateTime: Date
